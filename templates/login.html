@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Login</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <input type="text" name="username" id="username" placeholder="user name">
+        <input type="password" name="passwd" id="passwd" placeholder="password">
+        <input type="submit" value="Login"><br>
+        <p>If you don't have an account you can <a href="/register">register</a> here</p>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Expense</title>
+</head>
+<body>
+    <nav>
+        <a href="/category">Back</a>
+        <a href="/status">Status</a>
+    </nav>
+    <h4>Add expense</h4><br>
+    <a href="/logout">logout</a>
+    <form action="/expense" method="post">
+        <label for="etype">Expense</label>
+        <select name="etype" id="etype">
+            {% for val in data %}     
+                <option value="{{ val }}">{{ val }}</option>
+            {% endfor %}         
+        </select><br>
+        <input type="number" name="amount" id="amount" step="0.01" placeholder="18.35">
+        <input type="text" name="name" id="name" placeholder="Name of expense">
+        <input type="text" name="cat" id="cat" style="display: none;", value="{{ cat }}">
+        <input type="date" name="date" id="date">
+        <select name="dayofweek" id="dayofweek">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

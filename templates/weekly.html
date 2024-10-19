@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Expenses Weekly</title>
+</head>
+<body>
+    <h3>Weekly user expenses</h3><br>
+    <a href="/logout">logout</a>
+    <a href="/category">Add another</a>
+    <a href="/daily">Dayly</a>
+    <a href="/monthly">Monthly</a>
+    <a href="/yearly">Yearly</a>
+    <p>User Expenses</p>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Day of the Week</th>
+        </tr>
+        {% for item in exp %}
+            <tr>
+                <td>{{ item.category }}</td>
+                <td>{{ item.expense_type }}</td>
+                <td>{{ item.expense_name}}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.day_of_week }}</td>
+            </tr>
+        {% endfor %}
+        <p>Total: {{ ttl }}</p>
+    </table>
+    <img src="{{url_for('print_plot_weekly')}}" alt="plot"><br>
+    <img src="{{url_for('print_pie_weekly')}}" alt="pie">
+    <img src="{{url_for('print_bar_weekly')}}" alt="bar">
+</body>
+</html>

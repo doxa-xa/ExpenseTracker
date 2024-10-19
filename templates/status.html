@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Expense</title>
+</head>
+<body>
+    <h3>Status</h3><br>
+    <nav>
+        <a href="/logout">logout</a>
+        <a href="/category">Add another</a>
+        <a href="/daily">Dayly</a>
+        <a href="/weekly">Weekly</a>
+        <a href="/monthly">Monthly</a>
+        <a href="/yearly">Yearly</a>
+        <a href="/expensetypes">Expense Types</a>
+    </nav>
+    <p>User Expenses</p>
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Day of the Week</th>
+        </tr>
+        {% for item in exp %}
+            <tr>
+                <td>{{ item.category }}</td>
+                <td>{{ item.expense_type }}</td>
+                <td>{{ item.expense_name}}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.day_of_week }}</td>
+            </tr>
+        {% endfor %}
+        <p>Total: {{ ttl }}</p>
+    </table><br>
+    <img src="{{url_for('print_plot')}}" alt="plot"><br>
+    <img src="/printpie" alt="pie">
+    <img src="/printbar" alt="bar">
+</body>
+</html>

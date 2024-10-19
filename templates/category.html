@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Category</title>
+</head>
+<body>
+    <nav>
+        <a href="/status">Status</a>
+        <a href="/logout">logout</a>
+    </nav>
+    <h4>Add expense</h4><br>
+    <form action="/category" method="post">
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            {% for val in data %}     
+                <option value="{{ val }}">{{ val }}</option>
+            {% endfor %}         
+        </select><br>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

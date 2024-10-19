@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='main.css')}}">
+    <title>Expenses Tracker - Expense types</title>
+</head>
+<body>
+    <h3>Status</h3><br>
+    <nav>
+        <a href="/logout">logout</a>
+        <a href="/category">Add another</a>
+        <a href="/daily">Dayly</a>
+        <a href="/weekly">Weekly</a>
+        <a href="/monthly">Monthly</a>
+        <a href="/yearly">Yearly</a>
+    </nav>
+    {% for pic in pics %}
+        <img src="/{{ pic }}" alt="{{ pic }}">
+    {% endfor %}
+</body>
+</html>
